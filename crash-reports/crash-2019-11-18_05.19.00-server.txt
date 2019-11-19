@@ -1,0 +1,303 @@
+---- Minecraft Crash Report ----
+
+WARNING: coremods are present:
+  llibrary (llibrary-1.7.7-1.10.2.jar)
+  IceAndFireForgeLoading (iceandfire-1.0.1.jar)
+  RBLoadingPlugin (RealBench-1.10.2-1.3.2.jar)
+  MalisisCorePlugin (malisiscore-1.10.2-4.4.0.jar)
+  DynamicSurroundingsCore (DynamicSurroundings-1.10.2-3.4.9.17.jar)
+  ForgelinPlugin (Forgelin-1.0.5.jar)
+  FMLPlugin (InventoryTweaks-1.61-58.jar)
+  BetterFoliageLoader (BetterFoliage-MC1.10.2-2.1.11.jar)
+Contact their authors BEFORE contacting forge
+
+// But it works on my machine.
+
+Time: 11/18/19 5:19 AM
+Description: Watching Server
+
+java.lang.Error
+	at java.util.AbstractCollection.toArray(AbstractCollection.java:143)
+	at java.util.ArrayList.addAll(ArrayList.java:581)
+	at com.khorn.terraincontrol.forge.WorldLoader.getAllWorlds(WorldLoader.java:68)
+	at com.khorn.terraincontrol.forge.ForgeEngine.getAllWorlds(ForgeEngine.java:183)
+	at com.khorn.terraincontrol.TerrainControl.getAllWorlds(TerrainControl.java:208)
+	at com.khorn.terraincontrol.TerrainControl.getBiomeAllWorlds(TerrainControl.java:172)
+	at com.khorn.terraincontrol.generator.ChunkProviderTC.toBiomeConfig(ChunkProviderTC.java:637)
+	at com.khorn.terraincontrol.generator.ChunkProviderTC.generateTerrain(ChunkProviderTC.java:248)
+	at com.khorn.terraincontrol.generator.ChunkProviderTC.generate(ChunkProviderTC.java:132)
+	at com.khorn.terraincontrol.forge.generator.TXChunkGenerator.func_185932_a(TXChunkGenerator.java:63)
+	at net.minecraft.world.gen.ChunkProviderServer.func_186025_d(ChunkProviderServer.java:140)
+	at net.minecraft.server.management.PlayerChunkMapEntry.func_187268_a(PlayerChunkMapEntry.java:126)
+	at net.minecraft.server.management.PlayerChunkMap.func_72693_b(SourceFile:147)
+	at net.minecraft.world.WorldServer.func_72835_b(WorldServer.java:222)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:698)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:387)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:613)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:471)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server Watchdog
+Stacktrace:
+	at java.util.AbstractCollection.toArray(AbstractCollection.java:143)
+	at java.util.ArrayList.addAll(ArrayList.java:581)
+	at com.khorn.terraincontrol.forge.WorldLoader.getAllWorlds(WorldLoader.java:68)
+	at com.khorn.terraincontrol.forge.ForgeEngine.getAllWorlds(ForgeEngine.java:183)
+	at com.khorn.terraincontrol.TerrainControl.getAllWorlds(TerrainControl.java:208)
+	at com.khorn.terraincontrol.TerrainControl.getBiomeAllWorlds(TerrainControl.java:172)
+	at com.khorn.terraincontrol.generator.ChunkProviderTC.toBiomeConfig(ChunkProviderTC.java:637)
+	at com.khorn.terraincontrol.generator.ChunkProviderTC.generateTerrain(ChunkProviderTC.java:248)
+	at com.khorn.terraincontrol.generator.ChunkProviderTC.generate(ChunkProviderTC.java:132)
+	at com.khorn.terraincontrol.forge.generator.TXChunkGenerator.func_185932_a(TXChunkGenerator.java:63)
+	at net.minecraft.world.gen.ChunkProviderServer.func_186025_d(ChunkProviderServer.java:140)
+	at net.minecraft.server.management.PlayerChunkMapEntry.func_187268_a(PlayerChunkMapEntry.java:126)
+	at net.minecraft.server.management.PlayerChunkMap.func_72693_b(SourceFile:147)
+	at net.minecraft.world.WorldServer.func_72835_b(WorldServer.java:222)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:698)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:387)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:613)
+
+-- Thread Dump --
+Details:
+	Threads: "Netty Epoll Server IO #7" Id=34 RUNNABLE
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Netty Epoll Server IO #6" Id=33 RUNNABLE
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Chunk I/O Executor Thread-1" Id=42 WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@6c0338f2
+	at sun.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@6c0338f2
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Netty Epoll Server IO #5" Id=32 RUNNABLE
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Netty Epoll Server IO #4" Id=31 RUNNABLE
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Netty Epoll Server IO #3" Id=30 RUNNABLE (in native)
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Netty Epoll Server IO #2" Id=29 RUNNABLE (in native)
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Netty Epoll Server IO #1" Id=28 RUNNABLE (in native)
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"File IO Thread" Id=38 RUNNABLE
+	at java.util.zip.Deflater.deflateBytes(Native Method)
+	at java.util.zip.Deflater.deflate(Deflater.java:444)
+	-  locked java.util.zip.ZStreamRef@62c4cb02
+	at java.util.zip.Deflater.deflate(Deflater.java:366)
+	at java.util.zip.DeflaterOutputStream.deflate(DeflaterOutputStream.java:251)
+	at java.util.zip.DeflaterOutputStream.write(DeflaterOutputStream.java:211)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.write(BufferedOutputStream.java:126)
+	-  locked java.io.BufferedOutputStream@66fb5382
+	at java.io.DataOutputStream.write(DataOutputStream.java:107)
+	-  locked java.io.DataOutputStream@23f9c139
+	...
+
+
+"Java2D Disposer" Id=36 WAITING on java.lang.ref.ReferenceQueue$Lock@5648b91c
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@5648b91c
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:165)
+	at sun.java2d.Disposer.run(Disposer.java:148)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Server Watchdog" Id=35 RUNNABLE
+	at sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:454)
+	at net.minecraft.server.dedicated.ServerHangWatchdog.run(ServerHangWatchdog.java:46)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Netty Epoll Server IO #0" Id=27 RUNNABLE (in native)
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Server console handler" Id=19 RUNNABLE (in native)
+	at java.io.FileInputStream.read0(Native Method)
+	at java.io.FileInputStream.read(FileInputStream.java:207)
+	at jline.internal.NonBlockingInputStream.read(NonBlockingInputStream.java:245)
+	at jline.internal.InputStreamReader.read(InputStreamReader.java:257)
+	-  locked jline.internal.NonBlockingInputStream@1210e40c
+	at jline.internal.InputStreamReader.read(InputStreamReader.java:194)
+	-  locked jline.internal.NonBlockingInputStream@1210e40c
+	at jline.console.ConsoleReader.readCharacter(ConsoleReader.java:2136)
+	at jline.console.ConsoleReader.readCharacter(ConsoleReader.java:2126)
+	at jline.console.ConsoleReader.readLineSimple(ConsoleReader.java:3228)
+	...
+
+
+"DestroyJavaVM" Id=18 RUNNABLE
+
+
+"Server thread" Id=16 RUNNABLE
+	at java.util.AbstractCollection.toArray(AbstractCollection.java:143)
+	at java.util.ArrayList.addAll(ArrayList.java:581)
+	at com.khorn.terraincontrol.forge.WorldLoader.getAllWorlds(WorldLoader.java:68)
+	-  locked java.util.HashMap@2e4bc28f
+	-  locked java.util.HashMap@43d63e76
+	at com.khorn.terraincontrol.forge.ForgeEngine.getAllWorlds(ForgeEngine.java:183)
+	at com.khorn.terraincontrol.TerrainControl.getAllWorlds(TerrainControl.java:208)
+	at com.khorn.terraincontrol.TerrainControl.getBiomeAllWorlds(TerrainControl.java:172)
+	at com.khorn.terraincontrol.generator.ChunkProviderTC.toBiomeConfig(ChunkProviderTC.java:637)
+	at com.khorn.terraincontrol.generator.ChunkProviderTC.generateTerrain(ChunkProviderTC.java:248)
+	...
+
+
+"Server Infinisleeper" Id=15 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at net.minecraft.server.dedicated.DedicatedServer$1.run(DedicatedServer.java:78)
+
+
+"Snooper Timer" Id=14 TIMED_WAITING on java.util.TaskQueue@50c5ef49
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@50c5ef49
+	at java.util.TimerThread.mainLoop(Timer.java:552)
+	at java.util.TimerThread.run(Timer.java:505)
+
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+
+"Finalizer" Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@456041d9
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@456041d9
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:165)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:216)
+
+
+"Reference Handler" Id=2 WAITING on java.lang.ref.Reference$Lock@354fac40
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.Reference$Lock@354fac40
+	at java.lang.Object.wait(Object.java:502)
+	at java.lang.ref.Reference.tryHandlePending(Reference.java:191)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
+
+
+
+Stacktrace:
+	at net.minecraft.server.dedicated.ServerHangWatchdog.run(ServerHangWatchdog.java:63)
+	at java.lang.Thread.run(Thread.java:748)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.10.2
+	Operating System: Linux (amd64) version 5.3.11-200.fc30.x86_64
+	Java Version: 1.8.0_232, Oracle Corporation
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 619977760 bytes (591 MB) / 1464860672 bytes (1397 MB) up to 5726797824 bytes (5461 MB)
+	JVM Flags: 2 total; -Xms1024M -Xmx6144M
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.32 Powered by Forge 12.18.3.2185 26 mods loaded, 26 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCHIJAAAA	mcp{9.19} [Minecraft Coder Pack] (minecraft.jar) 
+	UCHIJAAAA	FML{8.0.99.99} [Forge Mod Loader] (forge.jar) 
+	UCHIJAAAA	Forge{12.18.3.2185} [Minecraft Forge] (forge.jar) 
+	UCHIJAAAA	craftstudioapi{0.3.0-beta} [CraftStudio API] (CraftStudioAPI-universal-0.3.0.87-mc1.10.2-beta.jar) 
+	UCHIJAAAA	animania{1.4.7} [Animania] (animania-1.10.2-1.4.8.jar) 
+	UCHIJAAAA	openterraingenerator{v20} [Open Terrain Generator] (OpenTerrainGenerator-1.10.2-v21.jar) 
+	UCHIJAAAA	biomebundle{5.1} [Biome Bundle] (Biome_Bundle-1.10.2-v5.1.jar) 
+	UCHIJAAAA	dsurround{3.4.9.17} [Dynamic Surroundings] (DynamicSurroundings-1.10.2-3.4.9.17.jar) 
+	UCHIJAAAA	earthworks{1.3.4.1} [Earthworks] (Earthworks-1.10.2-1.3.4.1.jar) 
+	UCHIJAAAA	exoticbirds{1.0} [Exotic Birds] (Exotic+Birds+1.10.2-1.4.2.jar) 
+	UCHIJAAAA	gravestone{1.5.13} [Gravestone Mod] (gravestone-1.5.13.jar) 
+	UCHIJAAAA	llibrary{1.7.7} [LLibrary] (llibrary-1.7.7-1.10.2.jar) 
+	UCHIJAAAA	iceandfire{1.0.1} [Ice and Fire] (iceandfire-1.0.1.jar) 
+	UCHIJAAAA	inventorytweaks{1.61-58-a1fd884} [Inventory Tweaks] (InventoryTweaks-1.61-58.jar) 
+	UCHIJAAAA	JEI{3.14.7.420} [Just Enough Items] (jei_1.10.2-3.14.7.420.jar) 
+	UCHIJAAAA	malisiscore{1.10.2-4.4.0} [MalisisCore] (malisiscore-1.10.2-4.4.0.jar) 
+	UCHIJAAAA	malisisdoors{1.10.2-5.2.0} [MalisisDoors] (malisisdoors-1.10.2-5.2.0.jar) 
+	UCHIJAAAA	harvestcraft{1.10.2j} [Pam's HarvestCraft] (Pam's+HarvestCraft+1.10.2j.jar) 
+	UCHIJAAAA	plants{0.8.5} [Plants] (Plants-1.10.2-beta-0.8.5.jar) 
+	UCHIJAAAA	treechopper{1.1.2} [Tree Chopper] (TreeChopper-1.10.2-1.1.2.jar) 
+	UCHIJAAAA	VeinMiner{0.38.2_1.9-127e28f} [Vein Miner] (VeinMiner-1.9-0.38.2.624+127e28f.jar) 
+	UCHIJAAAA	VeinMinerModSupport{0.38.2_1.9-127e28f} [Mod Support] (VeinMiner-1.9-0.38.2.624+127e28f.jar) 
+	UCHIJAAAA	Waila{1.7.0} [Waila] (Waila-1.7.0-B3_1.9.4.jar) 
+	UCHIJAAAA	icse{1.1.0.0} [I Can See Everything] (Wawla-1.10.2-2.3.2.215.jar) 
+	UCHIJAAAA	wawla{2.3.2.215} [What Are We Looking At] (Wawla-1.10.2-2.3.2.215.jar) 
+	UCHIJAAAA	WholeTreeAxe{1.5.0} [Whole Tree Axe] (WholeTreeAxe-1.10-1.5.0.jar) 
+	Loaded coremods (and transformers): 
+llibrary (llibrary-1.7.7-1.10.2.jar)
+  net.ilexiconn.llibrary.server.core.plugin.LLibraryTransformer
+  net.ilexiconn.llibrary.server.core.patcher.LLibraryRuntimePatcher
+IceAndFireForgeLoading (iceandfire-1.0.1.jar)
+  com.github.alexthe666.iceandfire.access.IceAndFireTransformer
+RBLoadingPlugin (RealBench-1.10.2-1.3.2.jar)
+  pw.prok.realbench.asm.RBTransformer
+MalisisCorePlugin (malisiscore-1.10.2-4.4.0.jar)
+  net.malisis.core.util.chunkcollision.ChunkCollisionTransformer
+  net.malisis.core.util.chunkblock.ChunkBlockTransformer
+  net.malisis.core.renderer.transformer.MalisisRendererTransformer
+  net.malisis.core.renderer.icon.asm.TextureMapTransformer
+  net.malisis.core.util.clientnotif.ClientNotifTransformer
+DynamicSurroundingsCore (DynamicSurroundings-1.10.2-3.4.9.17.jar)
+  org.blockartistry.DynSurround.asm.Transformer
+ForgelinPlugin (Forgelin-1.0.5.jar)
+  
+FMLPlugin (InventoryTweaks-1.61-58.jar)
+  invtweaks.forge.asm.ContainerTransformer
+BetterFoliageLoader (BetterFoliage-MC1.10.2-2.1.11.jar)
+  mods.betterfoliage.loader.BetterFoliageTransformer
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 2; [EntityPlayerMP['Infernette'/42828, l='world', x=332.74, y=112.14, z=-436.57]]
+	Is Modded: Definitely; Server brand changed to 'fml,forge'
+	Type: Dedicated Server (map_server.txt)

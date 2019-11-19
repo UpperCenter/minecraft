@@ -1,0 +1,40 @@
+[08:08:51] [Server thread/INFO]: Starting minecraft server version 1.10.2
+[08:09:18] [Server thread/INFO]: Loading properties
+[08:09:18] [Server thread/INFO]: Default game type: SURVIVAL
+[08:09:18] [Server thread/INFO]: Generating keypair
+[08:09:18] [Server thread/INFO]: Starting Minecraft server on *:25565
+[08:09:18] [Server thread/INFO]: Using epoll channel type
+[08:09:23] [Server thread/INFO]: Preparing level "world"
+[08:09:26] [Server thread/INFO]: Preparing start region for level 0
+[08:09:27] [Server thread/INFO]: Preparing spawn area: 0%
+[08:09:28] [Server thread/INFO]: Preparing spawn area: 7%
+[08:09:29] [Server thread/INFO]: Preparing spawn area: 37%
+[08:09:30] [Server thread/INFO]: Preparing spawn area: 68%
+[08:09:31] [Server thread/INFO]: Preparing spawn area: 87%
+[08:09:32] [Server thread/INFO]: Done (9.231s)! For help, type "help" or "?"
+[08:09:56] [User Authenticator #1/INFO]: UUID of player UpperCenter is 7acad0df-bf26-44f9-973c-87dc016f0a2e
+[08:09:57] [Server thread/INFO]: UpperCenter[/81.97.158.126:18182] logged in with entity id 161 at (194.58902878870163, 97.0, 201.58066414389026)
+[08:09:57] [Server thread/INFO]: UpperCenter joined the game
+[08:13:13] [Server thread/INFO]: [UpperCenter: Given [Iron Axe] * 1 to UpperCenter]
+[08:17:29] [Server thread/INFO]: UpperCenter lost connection: TextComponent{text='Disconnected', siblings=[], style=Style{hasParent=false, color=null, bold=null, italic=null, underlined=null, obfuscated=null, clickEvent=null, hoverEvent=null, insertion=null}}
+[08:17:29] [Server thread/INFO]: UpperCenter left the game
+[15:42:58] [User Authenticator #2/INFO]: UUID of player UpperCenter is 7acad0df-bf26-44f9-973c-87dc016f0a2e
+[15:42:59] [Server thread/INFO]: UpperCenter[/81.97.158.126:2198] logged in with entity id 12276 at (194.7484136854257, 97.0, 201.94304016462726)
+[15:42:59] [Server thread/INFO]: UpperCenter joined the game
+[15:44:20] [Server thread/INFO]: [UpperCenter: Given [Shield] * 1 to UpperCenter]
+[15:55:42] [Server thread/INFO]: [UpperCenter: Given [Stone Bricks] * 64 to UpperCenter]
+[15:56:35] [Server thread/INFO]: [UpperCenter: Given [Stone] * 64 to UpperCenter]
+[15:58:58] [Server thread/INFO]: [UpperCenter: Given [Cinder Block Stairs] * 64 to UpperCenter]
+[16:00:34] [Server thread/INFO]: [UpperCenter: Set own game mode to Creative Mode]
+[16:04:48] [Server thread/INFO]: [UpperCenter: Given [Oak Fence] * 64 to UpperCenter]
+[16:04:59] [Server thread/INFO]: [UpperCenter: Set own game mode to Survival Mode]
+[16:10:01] [Server thread/INFO]: [UpperCenter: Given [Glowstone] * 1 to UpperCenter]
+[16:10:01] [Server thread/INFO]: [UpperCenter: Given [Glowstone] * 1 to UpperCenter]
+[16:10:01] [Server thread/INFO]: [UpperCenter: Given [Glowstone] * 1 to UpperCenter]
+[16:10:01] [Server thread/INFO]: [UpperCenter: Given [Glowstone] * 1 to UpperCenter]
+[16:13:04] [Server thread/INFO]: [UpperCenter: Given [Glowstone] * 1 to UpperCenter]
+[16:13:55] [Server thread/INFO]: [UpperCenter: Given [Glowstone] * 64 to UpperCenter]
+[16:26:22] [Server thread/INFO]: [UpperCenter: Saved the world]
+[16:33:22] [Server thread/INFO]: UpperCenter lost connection: TextComponent{text='Disconnected', siblings=[], style=Style{hasParent=false, color=null, bold=null, italic=null, underlined=null, obfuscated=null, clickEvent=null, hoverEvent=null, insertion=null}}
+[16:33:22] [Server thread/INFO]: UpperCenter left the game
+[20:20:32] [Server Shutdown Thread/INFO]: Stopping server

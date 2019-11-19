@@ -1,0 +1,14 @@
+[
+  {
+    "uuid": "cb696aba-23d3-4506-bc66-6ec727f5e682",
+    "name": "Infernette",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "7acad0df-bf26-44f9-973c-87dc016f0a2e",
+    "name": "UpperCenter",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  }
+]
